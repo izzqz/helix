@@ -5,19 +5,19 @@ with pkgs; [
   nil
 
   /* JSON */
-  # nodePackages.vscode-json-languageserver
+  nodePackages.vscode-json-languageserver
 
   /* YAML */
-  # yaml-language-server
+  yaml-language-server
 
   /* TOML */
   taplo
 
   /* XML */
-  # nodePackages.vscode-xml-languageserver
+  # TODO vscode-xml-language-server
 
   /* Dockerfile */
-  # docker-language-server-nodejs
+  # dockerfile-language-server-nodejs
 
   /* Terraform */
   # terraform-ls
@@ -25,15 +25,9 @@ with pkgs; [
   /* Markdown */
   marksman
 
-  /* HTML */
-  # nodePackages.vscode-html-languageserver-bin
-
-  /* CSS */
-  # nodePackages.vscode-css-languageserver-bin
-
-  /* JavaScript/TypeScript */
+  /* HTML, CSS, JS, TS */
+  vscode-langservers-extracted
   # nodePackages.typescript-language-server
-  # nodePackages.vscode-eslint-language-server
 
   /* Python */
   # python3Packages.python-lsp-server
@@ -76,7 +70,7 @@ with pkgs; [
   # elixir-ls
 
   /* OCaml */
-  # ocaml-lsp
+  # ocamlPackages.ocaml-lsp
 
   /* Swift */
   # sourcekit-lsp
@@ -86,13 +80,13 @@ with pkgs; [
   zig
 
   /* Julia */
-  # julia-lsp
+  # emacsPackages.lsp-julia
 
   /* Dart */
   # dart
 
   /* Elm */
-  # elm-language-server
+  # elmPackages.elm-language-server
 
   /* Erlang */
   # erlang-ls
@@ -125,7 +119,7 @@ with pkgs; [
   # vala-language-server
 
   /* Ada */
-  # ada_language_server
+  # TODO ada_language_server
 
   /* CMake */
   # cmake-language-server
