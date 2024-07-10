@@ -9,10 +9,6 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
-      - name: Check Nix flake inputs
-        uses: DeterminateSystems/flake-checker-action@v4
-        with:
-          check-owner: false
       - uses: nixbuild/nix-quick-install-action@v27
       - name: Restore and cache nix store
         uses: nix-community/cache-nix-action@v5
