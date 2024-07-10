@@ -25,12 +25,7 @@
         let 
           pkgs = pkgsFor system;
           helixPackage = helix.packages.${system}.default;
-          helixDeps = with pkgs; [
-            nil
-            zls zig # zig
-            typescript-language-server # javascript
-            # lldb # debugger
-          ];
+          helixDeps = import ./dependencies.nix { inherit pkgs; };
         in {
           default = pkgs.symlinkJoin {
             name = "helix-with-deps";
