@@ -1,5 +1,4 @@
-# theme = "monokai_pro_spectrum"
-theme = "monokai"
+theme = "monokai_pro_spectrum"
 
 [editor]
 bufferline = "multiple"
