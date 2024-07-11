@@ -15,4 +15,5 @@ nix profile install github:izzqz/helix
 
 ## How to edit
 
+TODO
 ...
