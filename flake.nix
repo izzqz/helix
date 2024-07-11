@@ -1,5 +1,5 @@
 {
-  description = "Helix editor with izzqz configuration";
+  description = "Helix editor with custom configuration";
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     helix = {
@@ -15,11 +15,6 @@
         inherit system; 
         overlays = [ ];
       };
-      copyConfig = system: 
-        (pkgsFor system).runCommand "helix-config" {} ''
-          mkdir -p $out
-          cp -r ${./config}/* $out/
-        '';
     in {
       packages = forAllSystems (system:
         let 
@@ -34,7 +29,7 @@
             postBuild = ''
               wrapProgram $out/bin/hx \
                 --set HELIX_RUNTIME "${helixPackage}/share/helix/runtime" \
-                --add-flags "-c ${copyConfig system}/config.toml" \
+                --add-flags "-c ${./config/config.toml}" \
                 --prefix PATH : ${pkgs.lib.makeBinPath helixDeps}
             '';
           };
