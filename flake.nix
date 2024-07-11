@@ -1,5 +1,5 @@
 {
-  description = "Helix editor izzqz configuration";
+  description = "Helix editor with izzqz configuration";
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     helix = {
@@ -28,7 +28,7 @@
           helixDeps = import ./dependencies.nix { inherit pkgs; };
         in {
           default = pkgs.symlinkJoin {
-            name = "helix-with-deps";
+            name = "helix-wrapped";
             paths = [ helixPackage ] ++ helixDeps;
             buildInputs = [ pkgs.makeWrapper ];
             postBuild = ''

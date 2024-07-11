@@ -4,6 +4,9 @@ with pkgs; [
   /* Nix */
   nil
 
+  /* LLVM Debugger */
+  lldb_18
+
   /* JSON */
   nodePackages.vscode-json-languageserver
 
@@ -27,7 +30,7 @@ with pkgs; [
 
   /* HTML, CSS, JS, TS */
   vscode-langservers-extracted
-  # nodePackages.typescript-language-server
+  nodePackages.typescript-language-server
 
   /* Python */
   # python3Packages.python-lsp-server
