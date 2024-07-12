@@ -28,7 +28,6 @@
             buildInputs = [ pkgs.makeWrapper ];
             postBuild = ''
               wrapProgram $out/bin/hx \
-                --set HELIX_RUNTIME "${helixPackage}/share/helix/runtime" \
                 --add-flags "-c ${./config/config.toml}" \
                 --prefix PATH : ${pkgs.lib.makeBinPath helixDeps}
             '';
