@@ -31,6 +31,7 @@ with pkgs; [
   /* HTML, CSS, JS, TS */
   vscode-langservers-extracted
   nodePackages.typescript-language-server
+  emmet-ls
 
   /* Python */
   # python3Packages.python-lsp-server
