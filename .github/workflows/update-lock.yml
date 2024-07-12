@@ -17,6 +17,4 @@ jobs:
       - name: Build package
         run: nix build
       - name: Push changes
-        uses: github-actions-x/commit@v2
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+        run: git push
