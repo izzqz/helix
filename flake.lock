@@ -26,6 +26,24 @@
         "systems": "systems"
       },
       "locked": {
+        "lastModified": 1710146030,
+        "narHash": "sha256-SZ5L6eA7HJ/nmkzGG7/ISclqe6oZdOZTNoesiInkXPQ=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "b1d9ab70662946ef0850d488da1c9019f3a9752a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "flake-utils_2": {
+      "inputs": {
+        "systems": "systems_2"
+      },
+      "locked": {
         "lastModified": 1709126324,
         "narHash": "sha256-q6EQdSeUZOG26WelxqkmR7kArjgWCdw5sfJVHPH/7j8=",
         "owner": "numtide",
@@ -42,18 +60,18 @@
     "helix": {
       "inputs": {
         "crane": "crane",
-        "flake-utils": "flake-utils",
+        "flake-utils": "flake-utils_2",
         "nixpkgs": [
           "nixpkgs"
         ],
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1720680469,
-        "narHash": "sha256-TU5YTUwYi21QP5pBZ9Xert8DDWZXvHcz0j0sZ6PN8Iw=",
+        "lastModified": 1720752910,
+        "narHash": "sha256-VJPQM0cYYIU5NokvTgcuMcaJuT3ejlnXMBBdPZiBcjc=",
         "owner": "helix-editor",
         "repo": "helix",
-        "rev": "8229a40da8a6675cbfa394e2437207bcf7863b45",
+        "rev": "a75b1cf51e445eb021ccd875210f529f09cd5f53",
         "type": "github"
       },
       "original": {
@@ -80,6 +98,7 @@
     },
     "root": {
       "inputs": {
+        "flake-utils": "flake-utils",
         "helix": "helix",
         "nixpkgs": "nixpkgs"
       }
@@ -110,6 +129,21 @@
       }
     },
     "systems": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
+      }
+    },
+    "systems_2": {
       "locked": {
         "lastModified": 1681028828,
         "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
