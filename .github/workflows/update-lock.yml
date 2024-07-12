@@ -1,21 +1,22 @@
 name: update-flake-lock
 on:
-  workflow_dispatch: # allows manual triggering
+  workflow_dispatch:
   schedule:
-    - cron: '0 0 * * 0' # runs weekly on Sunday at 00:00
+    - cron: '0 0 * * *' # runs every day
 
 jobs:
   lockfile:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-      - name: Install Nix
-        uses: DeterminateSystems/nix-installer-action@main
+      - uses: actions/checkout@v3
+      - uses: nixbuild/nix-quick-install-action@v27
       - name: Update flake.lock
-        uses: DeterminateSystems/update-flake-lock@main
+        run: nix flake update --commit-lock-file --option commit-lockfile-summary flake.lock
+      - name: Check flake
+        run: nix flake check --all-systems
+      - name: Build package
+        run: nix build
+      - name: Push changes
+        uses: github-actions-x/commit@v2
         with:
-          pr-title: "Update flake.lock"
-          pr-labels: |
-            dependencies
-            automated
+          github-token: ${{ secrets.GITHUB_TOKEN }}
