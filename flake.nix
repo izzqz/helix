@@ -21,14 +21,20 @@
           pkgs = pkgsFor system;
           helixPackage = helix.packages.${system}.default;
           helixDeps = import ./dependencies.nix { inherit pkgs; };
+          languagesConfig = import ./config/languages.nix { inherit pkgs; };
+          tomlFormat = pkgs.formats.toml { };
+          languagesToml = tomlFormat.generate "languages.toml" languagesConfig;
         in {
           default = pkgs.symlinkJoin {
             name = "helix-wrapped";
             paths = [ helixPackage ] ++ helixDeps;
             buildInputs = [ pkgs.makeWrapper ];
             postBuild = ''
+              mkdir -p $out/config/helix
+              cp ${./config/config.toml} $out/config/helix/config.toml
+              cp ${languagesToml} $out/config/helix/languages.toml
               wrapProgram $out/bin/hx \
-                --add-flags "-c ${./config/config.toml}" \
+                --set XDG_CONFIG_HOME "$out/config" \
                 --prefix PATH : ${pkgs.lib.makeBinPath helixDeps}
             '';
           };
