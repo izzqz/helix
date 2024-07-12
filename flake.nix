@@ -7,17 +7,18 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  outputs = { self, nixpkgs, helix }: 
+  outputs = { self, nixpkgs, helix }:
     let
       supportedSystems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
-      pkgsFor = system: import nixpkgs { 
-        inherit system; 
+      pkgsFor = system: import nixpkgs {
+        inherit system;
         overlays = [ ];
       };
-    in {
+    in
+    {
       packages = forAllSystems (system:
-        let 
+        let
           pkgs = pkgsFor system;
           helixPackage = helix.packages.${system}.default;
           helixDeps = import ./dependencies.nix { inherit pkgs; };
@@ -26,7 +27,8 @@
           tomlFormat = pkgs.formats.toml { };
           languagesToml = tomlFormat.generate "languages.toml" languagesConfig;
           configToml = tomlFormat.generate "config.toml" editorConfig;
-        in {
+        in
+        {
           default = pkgs.symlinkJoin {
             name = "helix-wrapped";
             paths = [ helixPackage ] ++ helixDeps;
