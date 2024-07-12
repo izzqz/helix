@@ -22,6 +22,6 @@ jobs:
       - name: Enable auto-merge
         if: steps.update.outputs.pull-request-number
         run: |
-          gh pr merge --auto --delete-branch --merge "${{ steps.update.outputs.pull-request-number }}"
+          gh pr merge --auto --delete-branch --squash "${{ steps.update.outputs.pull-request-number }}"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
