@@ -13,7 +13,7 @@ jobs:
     - uses: cachix/cachix-action@v14
       with:
         name: izzqz
-        # If you chose API tokens for write access OR if you have a private cache
+        signingKey: '${{ secrets.CACHIX_SIGNING_KEY }}'
         authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
     - run: nix build
     - run: nix run . -- --health
