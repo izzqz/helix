@@ -6,18 +6,12 @@
     nil = {
       command = "${pkgs.nil}/bin/nil";
     };
-    rust-analyzer = {
-      command = "${pkgs.rust-analyzer}/bin/rust-analyzer";
-      config.rust-analyzer = {
-        cargo.loadOutDirsFromCheck = true;
-        checkOnSave.command = "clippy";
-        procMacro.enable = true;
-        lens = {
-          references = true;
-          methodReferences = true;
-        };
-        completion.autoimport.enable = true;
-      };
+    typos = {
+      command = "${pkgs.typos-lsp}/bin/typos-lsp";
+    };
+    godot = {
+      command = "nc";
+      args = [ "127.0.0.1" "6005" ];
     };
   };
 
@@ -25,15 +19,18 @@
     {
       name = "nix";
       auto-format = true;
-      language-servers = [ "nil" ];
+      language-servers = [ "nil" "typos" ];
       formatter = {
         command = "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt";
       };
     }
     {
-      name = "rust";
+      name = "godot";
       auto-format = true;
-      language-servers = [ "rust-analyzer" ];
+      language-servers = [ "godot" "typos" ];
+      formatter = {
+        command = "${pkgs.gdtoolkit_4}/bin/gdformat";
+      };
     }
   ];
 }

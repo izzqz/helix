@@ -17,6 +17,7 @@ with pkgs; [
 
   /* Markdown */
   marksman
+  markdown-oxide
 
   /* HTML, CSS, JS, TS */
   vscode-langservers-extracted
