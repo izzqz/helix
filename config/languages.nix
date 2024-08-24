@@ -10,7 +10,7 @@
       command = "${pkgs.typos-lsp}/bin/typos-lsp";
     };
     godot = {
-      command = "nc";
+      command = "${pkgs.netcat-gnu}/bin/nc";
       args = [ "127.0.0.1" "6005" ];
     };
   };
@@ -25,7 +25,7 @@
       };
     }
     {
-      name = "godot";
+      name = "gdscript";
       auto-format = true;
       language-servers = [ "godot" "typos" ];
       formatter = {
