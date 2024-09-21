@@ -1,8 +1,8 @@
 # SEE: https://docs.helix-editor.com/configuration.html
 {
-  theme = "monokai_pro_spectrum";
+  theme = "ayu_evolve";
   editor = {
-    # Number of lines of padding around the edge of the screen when scrolling
+    # Number of inlines of padding around the edge of the screen when scrolling
     scrolloff = 5;
 
     # Enable mouse mode

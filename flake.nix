@@ -32,6 +32,7 @@
             mkdir -p $out/config/helix
             cp ${configToml} $out/config/helix/config.toml
             cp ${languagesToml} $out/config/helix/languages.toml
+            cp -r ${./config/themes} $out/config/helix/themes
             wrapProgram $out/bin/hx \
               --set XDG_CONFIG_HOME "$out/config" \
               --prefix PATH : ${pkgs.lib.makeBinPath helixDeps}
