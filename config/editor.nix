@@ -132,8 +132,15 @@
       g.a = "code_action";
       "ret" = [ "move_line_down" "goto_first_nonwhitespace" ];
       D = "delete_char_backward";
+
+      # Buffers
       "A-," = "goto_previous_buffer";
       "A-." = "goto_next_buffer";
+      "A-j" = "goto_previous_buffer";
+      "A-k" = "goto_next_buffer";
+      "A-h" = "goto_previous_buffer";
+      "A-l" = "goto_next_buffer";
+
       "A-w" = ":buffer-close";
       "A-/" = "repeat_last_motion";
       "A-x" = "extend_to_line_bounds";
